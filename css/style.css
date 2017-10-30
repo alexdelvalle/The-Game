@@ -32,4 +32,16 @@ h1 {
 .btn {
   font-size: 28px;
   margin-top: 15px;
+  padding-bottom: 0;
+  padding-top: 3px;
+}
+
+.modal-btn {
+  font-size: 24px;
+  margin-top: 15px;
+  padding-bottom: 0;
+}
+
+.modal-footer .btn {
+  font-size: 20px;
 }
