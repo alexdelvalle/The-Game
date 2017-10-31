@@ -45,3 +45,20 @@ h1 {
 .modal-footer .btn {
   font-size: 20px;
 }
+
+.game-page-full {
+  height: 700px;
+  width: 1200px;
+}
+
+.my-game{
+  box-sizing: border-box;
+  margin: 15px;
+  border: 1px solid black;
+}
+
+.my-game > img {
+  height: 400px;
+  width: auto;
+
+}
