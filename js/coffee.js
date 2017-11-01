@@ -55,7 +55,26 @@ function gamePageInit(){
   };
 
   // Coffee Mug Bullet
+  var mugImage = new Image();
+  mugImage.src = './images/greenmug.png';
 
+  function Bullet (x, y, image, width, height, hits) {
+      this.x = x;
+      this.y = y;
+      this.image = image;
+      this.width = width;
+      this.height = height;
+      this.captures = hits;
+  }
+
+  Bullet.prototype.draw = function () {
+        ctx.drawImage(this.image, this.x, this.y, 10, 10);
+  };
+
+  var myBullets = [];
+      for (var u = 0; u < myBullets.length; u++) {
+          myBullets.push(new Bullet (myGirl.x + 15, myGirl.y, mugImage, 10, 10, 0));
+      }
 
   // Coffee Projectiles
   var beanImage = new Image();
@@ -72,38 +91,39 @@ function gamePageInit(){
 
   Beans.prototype.draw = function () {
       // if (this.isLoaded) {
-          ctx.drawImage(this.image, this.x, this.y, 15, 20);
+          ctx.drawImage(this.image, this.x, this.y, 10, 15);
       // }
   };
 
   var myBeansOne = [];
       for(i = 1; i <= 12; i++) {
           myBeansOne.push(new Beans (400 + (50 * i), 120, 5, false, beanImage, false, 0.7));
-  }
+      }
 
   var myBeansTwo = [];
       for(i = 1; i <= 12; i++) {
           myBeansTwo.push(new Beans (400 + (50 * i), 165, 5, false, beanImage, false));
-  }
+      }
 
   var myBeansThree = [];
       for(i = 1; i <= 12; i++) {
           myBeansThree.push(new Beans (400 + (50 * i), 210, 5, false, beanImage, false));
-  }
+      }
+
   var myBeansFour = [];
       for(i = 1; i <= 12; i++) {
           myBeansFour.push(new Beans (400 + (50 * i), 255, 5, false, beanImage, false));
-  }
+      }
 
   var myBeansFive = [];
       for(i = 1; i <= 12; i++) {
           myBeansFive.push(new Beans (400 + (50 * i), 300, 5, false, beanImage, false));
-  }
+      }
 
   var myBeansSix = [];
       for(i = 1; i <= 12; i++) {
           myBeansSix.push(new Beans (400 + (50 * i), 345, 5, false, beanImage, false));
-  }
+      }
 
   var allOddBeans = [
       myBeansOne,
@@ -117,7 +137,7 @@ function gamePageInit(){
       myBeansSix,
   ];
 
-  // must all be separate to not mix up the positive and negative values for the array draw functions below
+  // Bean array speeds must all be separate to not mix up the positive and negative values for the array draw functions below
   var ax = 0.8;
   var bx = 0.8;
   var cx = 0.8;
@@ -131,9 +151,19 @@ function gamePageInit(){
     // clear the entire canvas to remove old items
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // draw coffee shop
     myCoffeeHouse.draw();
+
+    // draw bullets
+    myBullets.forEach(function(oneBullet) {
+        oneBullet.draw();
+        oneBullet.y -= 3;
+    });
+
+    // draw avatar
     myGirl.draw();
 
+    // draw Beans
     myBeansOne.forEach(function(oneBean) {
         oneBean.draw();
 
@@ -212,21 +242,30 @@ function gamePageInit(){
   requestAnimationFrame(draw);
 
 
-  // Avatar Movement Controls
+  // Movement Controls
   $(document).ready(function () {
       $(document).keydown(function () {
           switch (event.keyCode) {
             case 37: // left arrow
+                event.preventDefault();
                 myGirl.x -= 30;
                 break;
 
             case 39: // right arrow
+                event.preventDefault();
                 myGirl.x += 30;
                 break;
 
-            // case 32: // spacebar
-            //     mugBullet.y += 30;
-            //     break;
+            case 32: // spacebar
+                event.preventDefault();
+                var newBullet = new Bullet (myGirl.x + 15, myGirl.y, mugImage, 10, 10, 0);
+                myBullets.push(newBullet);
+                break;
+
+            case 38:
+            case 40:
+                event.preventDefault();
+                break;
           } // switch
       }); // keydown
   }); // document ready
