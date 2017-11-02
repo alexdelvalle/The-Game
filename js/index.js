@@ -36,7 +36,7 @@ function gamePageInit(){
 
   // Girl Avatar Image
   var girlImage = new Image();
-  girlImage.src = './images/girl.png';
+  girlImage.src = './images/girlcharacter.png';
   girlImage.onload = function () {
         myGirl.isLoaded = true;
   };
@@ -44,12 +44,12 @@ function gamePageInit(){
   // Girl Avatar Object
   var myGirl = {
       x: 400,
-      y: 435,
+      y: 400,
       isLoaded: false,
       image: girlImage,
       draw: function () {
           if (this.isLoaded) {
-              ctx.drawImage(this.image, this.x, this.y, 40, 60);
+              ctx.drawImage(this.image, this.x, this.y, 80, 90);
           }
       }
   };
@@ -91,33 +91,33 @@ function gamePageInit(){
   };
 
   var myBeansOne = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansOne.push(new Beans (400 + (50 * i), 120, 5, false, beanImage, false, 0.7));
+      for(i = 1; i <= 10; i++) {
+          myBeansOne.push(new Beans (350 + (35 * i), 90, 5, false, beanImage, false, 0.7));
       }
 
   var myBeansTwo = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansTwo.push(new Beans (400 + (50 * i), 165, 5, false, beanImage, false));
+      for(i = 1; i <= 10; i++) {
+          myBeansTwo.push(new Beans (350 + (35 * i), 135, 5, false, beanImage, false));
       }
 
   var myBeansThree = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansThree.push(new Beans (400 + (50 * i), 210, 5, false, beanImage, false));
+      for(i = 1; i <= 10; i++) {
+          myBeansThree.push(new Beans (350 + (35 * i), 180, 5, false, beanImage, false));
       }
 
   var myBeansFour = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansFour.push(new Beans (400 + (50 * i), 255, 5, false, beanImage, false));
+      for(i = 1; i <= 10; i++) {
+          myBeansFour.push(new Beans (350 + (35 * i), 225, 5, false, beanImage, false));
       }
 
   var myBeansFive = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansFive.push(new Beans (400 + (50 * i), 300, 5, false, beanImage, false));
+      for(i = 1; i <= 10; i++) {
+          myBeansFive.push(new Beans (350 + (35 * i), 270, 5, false, beanImage, false));
       }
 
   var myBeansSix = [];
-      for(i = 1; i <= 12; i++) {
-          myBeansSix.push(new Beans (400 + (50 * i), 345, 5, false, beanImage, false));
+      for(i = 1; i <= 10; i++) {
+          myBeansSix.push(new Beans (350 + (35 * i), 315, 5, false, beanImage, false));
       }
 
   var allBeans = [
@@ -319,7 +319,7 @@ function gamePageInit(){
 
             case 32: // spacebar
                 event.preventDefault();
-                var newBullet = new Bullet (myGirl.x + 17, myGirl.y, mugImage, 10, 10, 0);
+                var newBullet = new Bullet (myGirl.x + 32, myGirl.y, mugImage, 10, 10, 0);
                 myBullets.push(newBullet);
                 break;
 
