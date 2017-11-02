@@ -74,8 +74,12 @@ h1 {
   font-size: 24px;
   text-align: left;
   position: absolute;
-  margin-top: 193px;
+  margin-top: 218px;
   padding-left: 300px;
+}
+
+#cupcount {
+  font-size: 50px;
 }
 
 .hearts {
@@ -84,7 +88,7 @@ h1 {
   flex-direction: column;
   width: 40px;
   margin-left: 464px;
-  padding-top: 220px;
+  padding-top: 255px;
 }
 
 .hearts > img {
