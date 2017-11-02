@@ -68,7 +68,7 @@ function gamePageInit(){
   }
 
   Bullet.prototype.draw = function () {
-        ctx.drawImage(this.image, this.x, this.y, 15, 15);
+        ctx.drawImage(this.image, this.x, this.y, 15, 10);
   };
 
   var myBullets = [];
@@ -87,7 +87,7 @@ function gamePageInit(){
   }
 
   Beans.prototype.draw = function () {
-      ctx.drawImage(this.image, this.x, this.y, 15, 20);
+      ctx.drawImage(this.image, this.x, this.y, 14, 18);
   };
 
   var myBeansOne = [];

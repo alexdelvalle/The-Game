@@ -68,13 +68,23 @@ h1 {
   width: auto;
 }
 
+.shots {
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+  text-align: left;
+  position: absolute;
+  margin-top: 183px;
+  padding-left: 300px;
+}
+
 .hearts {
   position: absolute;
   display: flex;
   flex-direction: column;
   width: 40px;
   margin-left: 464px;
-  padding-top: 255px;
+  padding-top: 220px;
 }
 
 .hearts > img {
