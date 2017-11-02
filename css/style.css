@@ -52,13 +52,31 @@ h1 {
 }
 
 .my-game{
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   box-sizing: border-box;
-  margin: 15px;
+  margin: 15px 131px 15px 15px;
+  float: right;
+  height: 550px;
+  width: auto;
   border: 1px solid black;
 }
 
 .my-game > img {
   height: 400px;
   width: auto;
+}
 
+.hearts {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  margin-left: 464px;
+  padding-top: 255px;
+}
+
+.hearts > img {
+  padding: 5px;
 }

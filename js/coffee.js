@@ -12,24 +12,24 @@ $(document).ready(function () {
 
 function gamePageInit(){
   var canvas = document.querySelector('.my-game');
-  canvas.width = window.innerWidth - 30;
+  canvas.width = window.innerWidth - 500;
   var ctx = canvas.getContext('2d');
 
-  // Level Background Image
-  var coffeeHouseImage = new Image();
-  coffeeHouseImage.src = './images/coffeehouse.png';
-  coffeeHouseImage.onload = function () {
-      myCoffeeHouse.isLoaded = true;
+  // Level Board Image
+  var boardImage = new Image();
+  boardImage.src = './images/board.jpeg';
+  boardImage.onload = function () {
+      myBoard.isLoaded = true;
   };
-  // Level Background Object
-  var myCoffeeHouse = {
+  // Level Board Object
+  var myBoard = {
       x: 50,
-      y: 170,
+      y: 160,
       isLoaded: true,
-      image: coffeeHouseImage,
+      image: boardImage,
       draw: function () {
           if (this.isLoaded) {
-              ctx.drawImage(this.image, this.x, this.y, 271, 315);
+              ctx.drawImage(this.image, this.x, this.y, 241, 300);
           }
       }
   };
@@ -56,7 +56,7 @@ function gamePageInit(){
 
   // Coffee Mug Bullet
   var mugImage = new Image();
-  mugImage.src = './images/greenmug.png';
+  mugImage.src = './images/blackmug.png';
 
   function Bullet (x, y, image, width, height, hits) {
       this.x = x;
@@ -68,17 +68,14 @@ function gamePageInit(){
   }
 
   Bullet.prototype.draw = function () {
-        ctx.drawImage(this.image, this.x, this.y, 10, 10);
+        ctx.drawImage(this.image, this.x, this.y, 15, 15);
   };
 
   var myBullets = [];
-      for (var u = 0; u < myBullets.length; u++) {
-          myBullets.push(new Bullet (myGirl.x + 15, myGirl.y, mugImage, 10, 10, 0));
-      }
 
   // Coffee Projectiles
   var beanImage = new Image();
-  beanImage.src = './images/bean1.png';
+  beanImage.src = './images/cup.png';
 
   function Beans (x, y, caffeinePts, isConsumed, image, isLoaded) {
       this.x = x;
@@ -90,9 +87,7 @@ function gamePageInit(){
   }
 
   Beans.prototype.draw = function () {
-      // if (this.isLoaded) {
-          ctx.drawImage(this.image, this.x, this.y, 10, 15);
-      // }
+      ctx.drawImage(this.image, this.x, this.y, 15, 20);
   };
 
   var myBeansOne = [];
@@ -125,15 +120,12 @@ function gamePageInit(){
           myBeansSix.push(new Beans (400 + (50 * i), 345, 5, false, beanImage, false));
       }
 
-  var allOddBeans = [
+  var allBeans = [
       myBeansOne,
-      myBeansThree,
-      myBeansFive,
-  ];
-
-  var allEvenBeans = [
       myBeansTwo,
+      myBeansThree,
       myBeansFour,
+      myBeansFive,
       myBeansSix,
   ];
 
@@ -152,91 +144,160 @@ function gamePageInit(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // draw coffee shop
-    myCoffeeHouse.draw();
+    myBoard.draw();
 
     // draw bullets
     myBullets.forEach(function(oneBullet) {
         oneBullet.draw();
-        oneBullet.y -= 3;
+            oneBullet.y -= 3;
+
     });
 
     // draw avatar
     myGirl.draw();
 
-    // draw Beans
+    // draw Beans and check if consumed
     myBeansOne.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+              oneBean.draw();
+        }
 
         if (oneBean.x < 430) {
             ax = -ax;
         }
-        if (oneBean.x > canvas.width - 230) {
+
+        if (oneBean.x > canvas.width - 520) {
             ax = -ax;
         }
         oneBean.x -= ax;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                    oneBean.isConsumed = true;
+            }
+        });
     });
 
     myBeansTwo.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+            oneBean.draw();
+        }
 
-        if (oneBean.x > canvas.width - 230) {
+        if (oneBean.x > canvas.width - 520) {
             bx = -bx;
         }
         if (oneBean.x < 430) {
             bx = -bx;
         }
         oneBean.x += bx;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                    oneBean.isConsumed = true;
+            }
+        });
     });
 
     myBeansThree.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+            oneBean.draw();
+        }
 
         if (oneBean.x < 430) {
             cx = -cx;
         }
-        if (oneBean.x > canvas.width - 230) {
+        if (oneBean.x > canvas.width - 520) {
             cx = -cx;
         }
         oneBean.x -= cx;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                oneBean.isConsumed = true;
+            }
+        });
     });
 
     myBeansFour.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+            oneBean.draw();
+        }
 
-        if (oneBean.x > canvas.width - 230) {
+        if (oneBean.x > canvas.width - 520) {
             dx = -dx;
         }
         if (oneBean.x < 430) {
             dx = -dx;
         }
         oneBean.x += dx;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                oneBean.isConsumed = true;
+            }
+        });
     });
 
     myBeansFive.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+            oneBean.draw();
+        }
 
         if (oneBean.x < 430) {
             ex = -ex;
         }
-        if (oneBean.x > canvas.width - 230) {
+        if (oneBean.x > canvas.width - 520) {
             ex = -ex;
         }
         oneBean.x -= ex;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                oneBean.isConsumed = true;
+            }
+        });
     });
 
     myBeansSix.forEach(function(oneBean) {
-        oneBean.draw();
+        if (oneBean.isConsumed === false) {
+            oneBean.draw();
+        }
 
-        if (oneBean.x > canvas.width - 230) {
+        if (oneBean.x > canvas.width - 1020) {
             fx = -fx;
         }
         if (oneBean.x < 430) {
             fx = -fx;
         }
         oneBean.x += fx;
+
+        myBullets.forEach(function(oneBullet) {
+            if (oneBean.x < oneBullet.x &&
+                oneBullet.x < oneBean.x + 10 &&
+                oneBean.y < oneBullet.y &&
+                oneBullet.y < oneBean.y + 15) {
+                oneBean.isConsumed = true;
+            }
+        });
     });
 
     requestAnimationFrame(draw);
+
   }
 
   requestAnimationFrame(draw);
@@ -258,7 +319,7 @@ function gamePageInit(){
 
             case 32: // spacebar
                 event.preventDefault();
-                var newBullet = new Bullet (myGirl.x + 15, myGirl.y, mugImage, 10, 10, 0);
+                var newBullet = new Bullet (myGirl.x + 17, myGirl.y, mugImage, 10, 10, 0);
                 myBullets.push(newBullet);
                 break;
 
