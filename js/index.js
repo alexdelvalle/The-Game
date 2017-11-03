@@ -1,4 +1,4 @@
-var frenchCafe = new Audio ('music/frenchcafenew.m4a');
+var frenchCafe = new Audio ('music/frenchCafeNew.m4a');
 var wompWomp = new Audio('music/womp-womp.mp3');
 var winSound = new Audio('music/winsound.mp3');
 
