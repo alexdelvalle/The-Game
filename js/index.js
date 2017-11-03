@@ -13,7 +13,7 @@ $(document).ready(function () {
         myWelcomePage.fadeOut(1000, gamePageInit);
         myGamePage.fadeIn(5000);
         frenchCafe.play();
-
+        
     goHomeButton.click(function() {
         $('#myLoseModal').modal('hide');
         $('#myWinModal').modal('hide');
