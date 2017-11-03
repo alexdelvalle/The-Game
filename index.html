@@ -77,33 +77,40 @@
       <canvas class="my-game" height="500px">
       </canvas>
 
-      <!-- <div class="score-heading">
-        <p> Heart Rate </p>
-      </div> -->
-
       <div class="shots">
         <p> Coffees Consumed </p>
-        <p id="cupcount"> 0 cups </p>
+        <p><span id="cupcount">0</span> cups</p>
       </div>
 
       <div class="hearts">
-        <img src="images/chalk-heart.png" id="heart1" alt="full-heart" height="40px">
-        <img src="images/chalk-heart.png" id="heart2" alt="full-heart" height="40px">
-        <img src="images/chalk-heart.png" id="heart3" alt="full-heart" height="40px">
-        <img src="images/chalk-heart.png" id="heart4" alt="full-heart" height="40px">
-        <img src="images/chalk-heart.png" id="heart5" alt="full-heart" height="40px">
-        <img src="images/chalk-heart.png" id="heart6" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart1" class="active" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart2" class="active" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart3" class="active" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart4" class="active" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart5" class="active" alt="full-heart" height="40px">
+        <img src="images/chalk-heart.png" id="heart6" class="active" alt="full-heart" height="40px">
       </div>
 
-    </div>
-
-
-
-
-
-
-
-
+      <div class="win-game">
+        <div class="modal fade" tabindex="-1" role="dialog" id="game-win">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"> You're still awake! </h4>
+              </div>
+              <div class="modal-body">
+                <p> You've managed to stay awake the entire day. Great job! </p>
+                <p> You are one efficient and productive human. </p>
+                <p> Try and get rest now you caffeine-aholic, you. 😴 </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"> Go Home </button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
 
 
 

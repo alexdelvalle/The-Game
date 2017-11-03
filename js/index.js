@@ -34,6 +34,42 @@ function gamePageInit(){
       }
   };
 
+  // Hearts Life Bar
+  var oneHeart = $('#heart1');
+  var twoHeart = $('#heart2');
+  var threeHeart = $('#heart3');
+  var fourHeart = $('#heart4');
+  var fiveHeart = $('#heart5');
+  var sixHeart = $('#heart6');
+
+  var heartsArray = [oneHeart, twoHeart, threeHeart, fourHeart, fiveHeart, sixHeart];
+  var index = 0;
+  var addHeart = false;
+
+  // Remove a heart every 4 seconds
+  setInterval( function() {
+      if (addHeart === true) {
+          index = 0;
+          addHeart = false;
+        }
+
+        heartsArray[index++ % heartsArray.length].removeClass('active').addClass('inactive');
+
+  }, 2000);
+
+
+
+  // Raise Heart Level
+  var totalPoints = 0;
+  function raiseHearts() {
+      if (totalPoints >= 50) {
+      $('.inactive').last().removeClass('inactive').addClass('active');
+      totalPoints = 0;
+      addHeart = true;
+    }
+  }
+
+
   // Girl Avatar Image
   var girlImage = new Image();
   girlImage.src = './images/girlcharacter.png';
@@ -58,13 +94,13 @@ function gamePageInit(){
   var mugImage = new Image();
   mugImage.src = './images/blackmug.png';
 
-  function Bullet (x, y, image, width, height, hits) {
+  function Bullet (x, y, image, width, height, hasHit) {
       this.x = x;
       this.y = y;
       this.image = image;
       this.width = width;
       this.height = height;
-      this.captures = hits;
+      this.hasHit = false;
   }
 
   Bullet.prototype.draw = function () {
@@ -92,7 +128,7 @@ function gamePageInit(){
 
   var myBeansOne = [];
       for(i = 1; i <= 10; i++) {
-          myBeansOne.push(new Beans (350 + (35 * i), 90, 5, false, beanImage, false, 0.7));
+          myBeansOne.push(new Beans (350 + (35 * i), 90, 5, false, beanImage, false));
       }
 
   var myBeansTwo = [];
@@ -137,6 +173,16 @@ function gamePageInit(){
   var ex = 0.8;
   var fx = 0.8;
 
+  // count cups of coffee consumed
+  var cupCount = 60;
+  var cupText = $('#cupcount');
+  cupText.empty();
+  cupText.append(cupCount);
+
+
+  // Win Game
+  // Lose Game
+
 
   // Draw Items
   function draw () {
@@ -148,9 +194,8 @@ function gamePageInit(){
 
     // draw bullets
     myBullets.forEach(function(oneBullet) {
-        oneBullet.draw();
+            oneBullet.draw();
             oneBullet.y -= 3;
-
     });
 
     // draw avatar
@@ -173,10 +218,17 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
+                oneBullet.y < oneBean.y + 18) {
                     oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -196,10 +248,17 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
+                oneBullet.y < oneBean.y + 18) {
                     oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -219,10 +278,17 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
-                oneBean.isConsumed = true;
+                oneBullet.y < oneBean.y + 18) {
+                    oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -242,10 +308,17 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
-                oneBean.isConsumed = true;
+                oneBullet.y < oneBean.y + 18) {
+                    oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -265,10 +338,17 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
-                oneBean.isConsumed = true;
+                oneBullet.y < oneBean.y + 18) {
+                    oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -287,11 +367,20 @@ function gamePageInit(){
         oneBean.x += fx;
 
         myBullets.forEach(function(oneBullet) {
+
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 10 &&
+                oneBullet.x < oneBean.x + 14 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 15) {
-                oneBean.isConsumed = true;
+                oneBullet.y < oneBean.y + 18) {
+                    oneBean.isConsumed = true;
+                    cupCount--;
+                    oneBean.y = NaN;
+                    oneBullet.y = NaN;
+                    hasHit = false;
+                    cupText.empty();
+                    cupText.append(cupCount);
+                    totalPoints += oneBean.caffeinePts;
+                    raiseHearts();
             }
         });
     });
@@ -319,7 +408,7 @@ function gamePageInit(){
 
             case 32: // spacebar
                 event.preventDefault();
-                var newBullet = new Bullet (myGirl.x + 32, myGirl.y, mugImage, 10, 10, 0);
+                var newBullet = new Bullet (myGirl.x + 32, myGirl.y, mugImage, 15, 10, false);
                 myBullets.push(newBullet);
                 break;
 
