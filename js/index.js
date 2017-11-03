@@ -96,7 +96,7 @@ function gamePageInit(){
 
   // Girl Avatar Image
   var girlImage = new Image();
-  girlImage.src = './images/girlcharacter.png';
+  girlImage.src = './images/hipstergirl.svg';
   girlImage.onload = function () {
         myGirl.isLoaded = true;
   };
@@ -104,12 +104,12 @@ function gamePageInit(){
   // Girl Avatar Object
   var myGirl = {
       x: 400,
-      y: 400,
+      y: 370,
       isLoaded: false,
       image: girlImage,
       draw: function () {
           if (this.isLoaded) {
-              ctx.drawImage(this.image, this.x, this.y, 80, 90);
+              ctx.drawImage(this.image, this.x, this.y, 100, 110);
           }
       }
   };
