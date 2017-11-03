@@ -1,3 +1,7 @@
+var frenchCafe = new Audio ('music/frenchcafe.mp3');
+var wompWomp = new Audio('music/womp-womp.mp3');
+var winSound = new Audio('music/winsound.mp3');
+
 // Welcome Screen Fade Out on Start
 $(document).ready(function () {
     var startButton = $('#startButton');
@@ -8,6 +12,7 @@ $(document).ready(function () {
     startButton.click(function() {
         myWelcomePage.fadeOut(1000, gamePageInit);
         myGamePage.fadeIn(5000);
+        frenchCafe.play();
 
     goHomeButton.click(function() {
         $('#myLoseModal').modal('hide');
@@ -67,7 +72,7 @@ function gamePageInit(){
           clearInterval(heartChanger);
       }
       heartsArray[index++ % heartsArray.length].removeClass('active').addClass('inactive');
-  }, 2500);
+  }, 2200);
 
 
 
@@ -85,10 +90,15 @@ function gamePageInit(){
   function winLoseGame() {
       if (cupCount > 0 && ($('.inactive').length === 6)) {
           $('#myLoseModal').modal('show');
+          frenchCafe.pause();
+          wompWomp.play();
+
       }
       if (cupCount === 0 && ($('.inactive').length < 6)) {
           clearInterval(heartChanger);
           $('#myWinModal').modal('show');
+          frenchCafe.pause();
+          winSound.play();
       }
   }
 
@@ -234,10 +244,14 @@ function gamePageInit(){
         oneBean.x -= ax;
 
         myBullets.forEach(function(oneBullet) {
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -260,10 +274,14 @@ function gamePageInit(){
         oneBean.x += bx;
 
         myBullets.forEach(function(oneBullet) {
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -286,10 +304,14 @@ function gamePageInit(){
         oneBean.x -= cx;
 
         myBullets.forEach(function(oneBullet) {
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -312,10 +334,14 @@ function gamePageInit(){
         oneBean.x += dx;
 
         myBullets.forEach(function(oneBullet) {
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -338,10 +364,14 @@ function gamePageInit(){
         oneBean.x -= ex;
 
         myBullets.forEach(function(oneBullet) {
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -364,11 +394,14 @@ function gamePageInit(){
         oneBean.x += fx;
 
         myBullets.forEach(function(oneBullet) {
-
-            if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 16 &&
-                oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 27) {
+            if ((oneBean.x <= oneBullet.x &&
+                oneBullet.x <= oneBean.x + 16 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27) ||
+                (oneBean.x + 16 >= oneBullet.x + 22 &&
+                oneBean.x <= oneBullet.x + 22 &&
+                oneBean.y <= oneBullet.y &&
+                oneBullet.y <= oneBean.y + 27)) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
