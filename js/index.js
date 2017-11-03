@@ -21,6 +21,7 @@ function gamePageInit(){
   boardImage.onload = function () {
       myBoard.isLoaded = true;
   };
+
   // Level Board Object
   var myBoard = {
       x: 50,
@@ -46,20 +47,22 @@ function gamePageInit(){
   var index = 0;
   var addHeart = false;
 
-  // Remove a heart every 4 seconds
-  setInterval( function() {
+  // Remove a heart every 2 seconds
+  // Stop removing heart if there are no more cups left OR if all hearts are removed
+  var heartChanger = setInterval( function() {
       if (addHeart === true) {
           index = 0;
           addHeart = false;
         }
+      if ( $('.hearts img.inactive').length >= 6 || cupCount === 50 ) {
+          clearInterval(heartChanger);
+      }
+      heartsArray[index++ % heartsArray.length].removeClass('active').addClass('inactive');
+  }, 1000);
 
-        heartsArray[index++ % heartsArray.length].removeClass('active').addClass('inactive');
-
-  }, 2000);
 
 
-
-  // Raise Heart Level
+  // Add a heart if 10 cups have been consumed
   var totalPoints = 0;
   function raiseHearts() {
       if (totalPoints >= 50) {
@@ -68,6 +71,17 @@ function gamePageInit(){
       addHeart = true;
     }
   }
+
+  // Win Game
+  function winLoseGame() {
+      if (cupCount > 0 && ($('.inactive').length === 6)) {
+          $('#myLoseModal').modal('show');
+      }
+      if (cupCount === 0 && ($('.inactive').length < 6)) {
+          $('#myWinModal').modal('show');
+      }
+  }
+
 
 
   // Girl Avatar Image
@@ -179,15 +193,12 @@ function gamePageInit(){
   cupText.empty();
   cupText.append(cupCount);
 
-
-  // Win Game
-  // Lose Game
-
-
   // Draw Items
   function draw () {
     // clear the entire canvas to remove old items
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    winLoseGame();
 
     // draw coffee shop
     myBoard.draw();
@@ -200,6 +211,7 @@ function gamePageInit(){
 
     // draw avatar
     myGirl.draw();
+
 
     // draw Beans and check if consumed
     myBeansOne.forEach(function(oneBean) {
@@ -390,6 +402,7 @@ function gamePageInit(){
   }
 
   requestAnimationFrame(draw);
+
 
 
   // Movement Controls

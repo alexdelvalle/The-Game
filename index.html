@@ -92,7 +92,7 @@
       </div>
 
       <div class="win-game">
-        <div class="modal fade" tabindex="-1" role="dialog" id="game-win">
+        <div class="modal fade" id="myWinModal" tabindex="-1" role="dialog">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -105,12 +105,35 @@
                 <p> Try and get rest now you caffeine-aholic, you. 😴 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"> Go Home </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><a href="https://alexdelvalle.github.io/caffeine-canteen/"> Go Home </a></button>
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
       </div>
+
+      <div class="lose-game">
+        <div class="modal fade" id="myLoseModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"> OH NO! You fell Asleep! </h4>
+              </div>
+              <div class="modal-body">
+                <p> Sadly, you're not going to be able to get all your work done.</p>
+                <p> Now you're going to be one stressed out human when you wake up to all that unfinished work. </p>
+                <p> See you when you wake up! 😈 </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><a href="https://alexdelvalle.github.io/caffeine-canteen/"> Try again later </a></button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
+
+    </div>
 
 
 
