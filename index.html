@@ -23,46 +23,48 @@
         <h1> Caffeine Canteen </h1>
       </header>
 
-      <div class="container-one">
-        <h2> Can you stay awake? </h2>
-      </div>
+      <div class="simple-border">
+        <div class="container-one">
+          <h2> Can you stay awake? </h2>
+        </div>
 
-      <div class="start-game">
-        <button type="button" class="btn btn-default btn-lg btn-block" id="startButton"> START </button>
+        <div class="start-game">
+          <button type="button" class="btn btn-default btn-lg btn-block" id="startButton"> START </button>
 
-      <!-- Controls Button trigger modal -->
-        <button type="button" class="btn btn-info modal-btn" data-toggle="modal" data-target="#myModal">
-          CONTROLS
-        </button>
+        <!-- Controls Button trigger modal -->
+          <button type="button" class="btn btn-info modal-btn" data-toggle="modal" data-target="#myModal">
+            CONTROLS
+          </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="instructions-modal" id="myInstructions"> How To Play: </h4>
-              </div>
-              <div class="modal-body">
-                <p><b> Welcome to Caffeine Canteen! </b></p>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="instructions-modal" id="myInstructions"> How To Play: </h4>
+                </div>
+                <div class="modal-body">
+                  <p><b> Welcome to Caffeine Canteen! </b></p>
 
-                <p> The goal of the game is for you to stay awake through all the hustle and bustle throughout your day! </p>
+                  <p> The goal of the game is for you to stay awake through all the hustle and bustle throughout your day! </p>
 
-                <p> How to Win: Throw your mug into the air and consume all the available coffee to keep your energy level up.</p>
+                  <p> How to Win: Throw your mug into the air and consume all the available coffee to keep your energy level up.</p>
 
-                <p> Be careful, though! Your energy decreases as time passes, but you can increase it by consuming at least 10 cups of coffee. Make sure you don't fall asleep early! </p>
+                  <p> Be careful, though! Your energy decreases as time passes, but you can increase it by consuming at least 10 cups of coffee. Make sure you don't fall asleep early! </p>
 
-                <p><b> Controls: </b></p>
-                <ul>
-                  <li> Use the left and right arrows to move left and right. </li>
-                  <li> Use the spacebar to throw your mug and capture the falling coffee. </li>
-                </ul>
+                  <p><b> Controls: </b></p>
+                  <ul>
+                    <li> Use the left and right arrows to move left and right. </li>
+                    <li> Use the spacebar to throw your mug and capture the falling coffee. </li>
+                  </ul>
 
-                <p> Happy Caffeinating! </p>
+                  <p> Happy Caffeinating! </p>
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal"> Close </button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal"> Close </button>
+                </div>
               </div>
             </div>
           </div>
@@ -86,8 +88,8 @@
       </canvas>
 
       <div class="shots">
-        <p> Coffees Consumed </p>
-        <p><span id="cupcount">0</span> cups</p>
+        <p id="board-title"> Coffees Consumed </p>
+        <p><span id="cupcount">0</span></p>
       </div>
 
       <div class="hearts">

@@ -10,12 +10,20 @@ body {
   height: 16px;
 }
 
+.simple-border {
+  border: 1px solid #42AD7B;
+  padding: 10px 0 30px 0;
+  width: 760px;
+  margin: auto auto 20px;
+  box-shadow: 5px 10px 20px #D8D8D8;
+}
+
 h1 {
   color: #C1E7D5;
   font-family: 'Sacramento', cursive;
   font-weight: 700;
   font-size: 130px;
-  padding: 80px 0 50px 0;
+  padding: 40px 0 50px 0;
   text-align: center;
   text-shadow: -1px 0 #42AD7B, 0 1px #42AD7B, 1px 0 #42AD7B, 0 -1px #42AD7B;
 }
@@ -37,14 +45,14 @@ h2 {
 }
 
 .btn {
-  font-size: 28px;
+  font-size: 25px;
   margin-top: 15px;
   padding-bottom: 0;
   padding-top: 3px;
 }
 
 .modal-btn {
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 15px;
   padding-bottom: 0;
 }
@@ -82,11 +90,21 @@ h2 {
   text-align: left;
   position: absolute;
   margin-top: 218px;
-  padding-left: 300px;
+  padding-left: 295px;
 }
 
 #cupcount {
-  font-size: 50px;
+  display: block;
+  font-size: 130px;
+  font-weight: 200;
+  margin-top: 30px;
+  padding-left: 10px;
+}
+
+#board-title {
+  font-family: 'Sacramento', cursive;
+  font-size: 35px;
+  text-decoration: underline;
 }
 
 .hearts {
@@ -95,7 +113,7 @@ h2 {
   flex-direction: column;
   width: 40px;
   margin-left: 464px;
-  padding-top: 255px;
+  padding-top: 265px;
 }
 
 .hearts > img {

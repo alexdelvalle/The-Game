@@ -116,7 +116,7 @@ function gamePageInit(){
 
   // Coffee Mug Bullet
   var mugImage = new Image();
-  mugImage.src = './images/blackmug.png';
+  mugImage.src = './images/finalmug.png';
 
   function Bullet (x, y, image, width, height, hasHit) {
       this.x = x;
@@ -128,14 +128,14 @@ function gamePageInit(){
   }
 
   Bullet.prototype.draw = function () {
-        ctx.drawImage(this.image, this.x, this.y, 15, 10);
+        ctx.drawImage(this.image, this.x, this.y, 22, 22);
   };
 
   var myBullets = [];
 
   // Coffee Projectiles
   var beanImage = new Image();
-  beanImage.src = './images/cup.png';
+  beanImage.src = './images/coffeecup.png';
 
   function Beans (x, y, caffeinePts, isConsumed, image, isLoaded) {
       this.x = x;
@@ -147,37 +147,37 @@ function gamePageInit(){
   }
 
   Beans.prototype.draw = function () {
-      ctx.drawImage(this.image, this.x, this.y, 14, 18);
+      ctx.drawImage(this.image, this.x, this.y, 16, 27);
   };
 
   var myBeansOne = [];
       for(i = 1; i <= 10; i++) {
-          myBeansOne.push(new Beans (350 + (35 * i), 90, 5, false, beanImage, false));
+          myBeansOne.push(new Beans (350 + (35 * i), 55, 5, false, beanImage, false));
       }
 
   var myBeansTwo = [];
       for(i = 1; i <= 10; i++) {
-          myBeansTwo.push(new Beans (350 + (35 * i), 135, 5, false, beanImage, false));
+          myBeansTwo.push(new Beans (350 + (35 * i), 100, 5, false, beanImage, false));
       }
 
   var myBeansThree = [];
       for(i = 1; i <= 10; i++) {
-          myBeansThree.push(new Beans (350 + (35 * i), 180, 5, false, beanImage, false));
+          myBeansThree.push(new Beans (350 + (35 * i), 145, 5, false, beanImage, false));
       }
 
   var myBeansFour = [];
       for(i = 1; i <= 10; i++) {
-          myBeansFour.push(new Beans (350 + (35 * i), 225, 5, false, beanImage, false));
+          myBeansFour.push(new Beans (350 + (35 * i), 190, 5, false, beanImage, false));
       }
 
   var myBeansFive = [];
       for(i = 1; i <= 10; i++) {
-          myBeansFive.push(new Beans (350 + (35 * i), 270, 5, false, beanImage, false));
+          myBeansFive.push(new Beans (350 + (35 * i), 235, 5, false, beanImage, false));
       }
 
   var myBeansSix = [];
       for(i = 1; i <= 10; i++) {
-          myBeansSix.push(new Beans (350 + (35 * i), 315, 5, false, beanImage, false));
+          myBeansSix.push(new Beans (350 + (35 * i), 280, 5, false, beanImage, false));
       }
 
   var allBeans = [
@@ -235,9 +235,9 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -261,9 +261,9 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -287,9 +287,9 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -313,9 +313,9 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -339,9 +339,9 @@ function gamePageInit(){
 
         myBullets.forEach(function(oneBullet) {
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -366,9 +366,9 @@ function gamePageInit(){
         myBullets.forEach(function(oneBullet) {
 
             if (oneBean.x < oneBullet.x &&
-                oneBullet.x < oneBean.x + 14 &&
+                oneBullet.x < oneBean.x + 16 &&
                 oneBean.y < oneBullet.y &&
-                oneBullet.y < oneBean.y + 18) {
+                oneBullet.y < oneBean.y + 27) {
                     oneBean.isConsumed = true;
                     cupCount--;
                     oneBean.y = NaN;
@@ -406,7 +406,7 @@ function gamePageInit(){
 
             case 32: // spacebar
                 event.preventDefault();
-                var newBullet = new Bullet (myGirl.x + 32, myGirl.y, mugImage, 15, 10, false);
+                var newBullet = new Bullet (myGirl.x + 37, myGirl.y, mugImage, 22, 22, false);
                 myBullets.push(newBullet);
                 break;
 
