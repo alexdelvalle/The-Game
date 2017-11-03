@@ -67,7 +67,7 @@ function gamePageInit(){
           clearInterval(heartChanger);
       }
       heartsArray[index++ % heartsArray.length].removeClass('active').addClass('inactive');
-  }, 1000);
+  }, 2500);
 
 
 
@@ -189,12 +189,12 @@ function gamePageInit(){
   ];
 
   // Bean array speeds must all be separate to not mix up the positive and negative values for the array draw functions below
-  var ax = 1.2;
+  var ax = 1.4;
   var bx = 1;
   var cx = 0.8;
   var dx = 0.7;
-  var ex = 0.6;
-  var fx = 0.4;
+  var ex = 0.5;
+  var fx = 0.2;
 
   // count cups of coffee consumed
   var cupCount = 60;
@@ -227,13 +227,8 @@ function gamePageInit(){
         if (oneBean.isConsumed === false) {
               oneBean.draw();
         }
-
-        if (oneBean.x < 430) {
-            ax = -ax;
-        }
-
-        if (oneBean.x > canvas.width - 520) {
-            ax = -ax;
+        if (oneBean.x <= 350 ) {
+            oneBean.x = 700;
         }
         oneBean.x -= ax;
 
@@ -256,14 +251,10 @@ function gamePageInit(){
 
     myBeansTwo.forEach(function(oneBean) {
         if (oneBean.isConsumed === false) {
-            oneBean.draw();
+              oneBean.draw();
         }
-
-        if (oneBean.x > canvas.width - 520) {
-            bx = -bx;
-        }
-        if (oneBean.x < 430) {
-            bx = -bx;
+        if (oneBean.x >= 700 ) {
+            oneBean.x = 350;
         }
         oneBean.x += bx;
 
@@ -286,14 +277,10 @@ function gamePageInit(){
 
     myBeansThree.forEach(function(oneBean) {
         if (oneBean.isConsumed === false) {
-            oneBean.draw();
+              oneBean.draw();
         }
-
-        if (oneBean.x < 430) {
-            cx = -cx;
-        }
-        if (oneBean.x > canvas.width - 520) {
-            cx = -cx;
+        if (oneBean.x <= 350 ) {
+            oneBean.x = 700;
         }
         oneBean.x -= cx;
 
@@ -316,14 +303,10 @@ function gamePageInit(){
 
     myBeansFour.forEach(function(oneBean) {
         if (oneBean.isConsumed === false) {
-            oneBean.draw();
+              oneBean.draw();
         }
-
-        if (oneBean.x > canvas.width - 520) {
-            dx = -dx;
-        }
-        if (oneBean.x < 430) {
-            dx = -dx;
+        if (oneBean.x >= 700 ) {
+            oneBean.x = 350;
         }
         oneBean.x += dx;
 
@@ -346,14 +329,10 @@ function gamePageInit(){
 
     myBeansFive.forEach(function(oneBean) {
         if (oneBean.isConsumed === false) {
-            oneBean.draw();
+              oneBean.draw();
         }
-
-        if (oneBean.x < 430) {
-            ex = -ex;
-        }
-        if (oneBean.x > canvas.width - 520) {
-            ex = -ex;
+        if (oneBean.x <= 350 ) {
+            oneBean.x = 700;
         }
         oneBean.x -= ex;
 
@@ -376,14 +355,10 @@ function gamePageInit(){
 
     myBeansSix.forEach(function(oneBean) {
         if (oneBean.isConsumed === false) {
-            oneBean.draw();
+              oneBean.draw();
         }
-
-        if (oneBean.x > canvas.width - 1020) {
-            fx = -fx;
-        }
-        if (oneBean.x < 430) {
-            fx = -fx;
+        if (oneBean.x >= 700 ) {
+            oneBean.x = 350;
         }
         oneBean.x += fx;
 
