@@ -1,13 +1,22 @@
 // Welcome Screen Fade Out on Start
 $(document).ready(function () {
     var startButton = $('#startButton');
+    var goHomeButton = $('.gohomebutton');
     var myWelcomePage = $('.welcome-page-full');
     var myGamePage = $('.game-page-full');
 
     startButton.click(function() {
         myWelcomePage.fadeOut(1000, gamePageInit);
         myGamePage.fadeIn(5000);
+
+    goHomeButton.click(function() {
+        $('#myLoseModal').modal('hide');
+        $('#myWinModal').modal('hide');
+
+        myGamePage.fadeOut(1000);
+        myWelcomePage.fadeIn(1000);
     });
+  });
 });
 
 function gamePageInit(){
@@ -180,12 +189,12 @@ function gamePageInit(){
   ];
 
   // Bean array speeds must all be separate to not mix up the positive and negative values for the array draw functions below
-  var ax = 0.8;
-  var bx = 0.8;
+  var ax = 1.2;
+  var bx = 1;
   var cx = 0.8;
-  var dx = 0.8;
-  var ex = 0.8;
-  var fx = 0.8;
+  var dx = 0.7;
+  var ex = 0.6;
+  var fx = 0.4;
 
   // count cups of coffee consumed
   var cupCount = 60;

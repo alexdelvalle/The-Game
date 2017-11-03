@@ -7,15 +7,24 @@ body {
   background-color: white;
   font-family: 'Hind', sans-serif;
 }
+.favicon {
+  width: 16px;
+  height: 16px;
+}
 
 h1 {
   color: #C1E7D5;
   font-family: 'Sacramento', cursive;
   font-weight: 700;
-  font-size: 110px;
+  font-size: 130px;
   padding: 80px 0 50px 0;
   text-align: center;
   text-shadow: -1px 0 #42AD7B, 0 1px #42AD7B, 1px 0 #42AD7B, 0 -1px #42AD7B;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 400;
 }
 
 .container-one{
