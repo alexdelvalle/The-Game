@@ -105,10 +105,12 @@
               <div class="modal-body">
                 <p> You've managed to stay awake the entire day. Great job! </p>
                 <p> You are one efficient and productive human. </p>
-                <p> Try and get rest now you caffeine-aholic, you. 😴 </p>
+                <p> Now go get some rest you caffeine-aholic! 😴 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default gohomebutton" data-dismiss="modal"> Go Home </button>
+                <form>
+                  <input type="button" class="btn btn-default" onclick="history.go(0)" value="Go Home">
+                </form>
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
@@ -129,7 +131,9 @@
                 <p> See you when you wake up! 😈 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default gohomebutton" data-dismiss="modal"> Try again later </button>
+                <form>
+                  <input type="button" class="btn btn-default" onclick="history.go(0)" value="Go Home">
+                </form>
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->

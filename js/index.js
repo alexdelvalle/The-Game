@@ -87,6 +87,7 @@ function gamePageInit(){
           $('#myLoseModal').modal('show');
       }
       if (cupCount === 0 && ($('.inactive').length < 6)) {
+          clearInterval(heartChanger);
           $('#myWinModal').modal('show');
       }
   }
